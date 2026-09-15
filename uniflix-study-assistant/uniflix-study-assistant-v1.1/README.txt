@@ -18,9 +18,6 @@ UniFlix Study Assistant v2.1.0
 - Screenshot τρέχοντος video frame, όπου το επιτρέπει το video.
 - Export / Import JSON backup.
 
-Αφαιρέθηκαν:
-- AI summary.
-- Voice input.
 
 Εγκατάσταση:
 1. Αποσυμπίεσε το ZIP.
