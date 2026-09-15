@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "UniFlix Study Assistant",
+  "version": "2.1.0",
+  "description": "Organize UniFlix lectures with notes, progress, favorites, SOS, watch later, lists and flexible viewing controls.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://uniflix.uoa.gr/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "UniFlix Study Assistant",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://uniflix.uoa.gr/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+U"
+      }
+    }
+  }
+}

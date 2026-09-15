@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Τα μαθήματά μου — UniFlix Study Assistant</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-logo">U</div><div><b>UniFlix</b><span>Study Assistant</span></div></div>
+      <nav id="filters">
+        <button class="nav active" data-filter="all">▦ <span>Όλες οι διαλέξεις</span><em id="countAll">0</em></button>
+        <button class="nav" data-filter="favorites">♥ <span>Αγαπημένα μαθήματα</span><em id="countFav">0</em></button>
+        <button class="nav" data-filter="sos">⚠ <span>SOS διαλέξεις</span><em id="countSos">0</em></button>
+        <button class="nav" data-filter="later">◷ <span>Για αργότερα</span><em id="countLater">0</em></button>
+        <button class="nav" data-filter="lists">☷ <span>Οι λίστες μου</span><em id="countLists">0</em></button>
+      </nav>
+      <div class="side-separator"></div>
+      <button class="nav side-action" id="newList">＋ <span>Νέα λίστα</span></button>
+      <button class="nav side-action" id="export">⇩ <span>Export backup</span></button>
+      <button class="nav side-action" id="importBtn">⇧ <span>Import backup</span></button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+      <div class="sidebar-note"><b>100% local.</b><br>Πρόοδος, σημειώσεις, αγαπημένα και λίστες μένουν στον browser σου.</div>
+    </aside>
+
+    <main>
+      <header class="hero">
+        <div><div class="eyebrow">UNIFLIX STUDY ASSISTANT · LIBRARY</div><h1>Η βιβλιοθήκη μελέτης σου</h1><p>Όλες οι διαλέξεις σου οργανωμένες όπως πραγματικά διαβάζεις.</p></div>
+        <div class="header-actions"><input id="search" type="search" placeholder="Αναζήτηση μαθήματος ή διάλεξης…"><select id="sort"><option value="recent">Πιο πρόσφατα</option><option value="progress">Μεγαλύτερη πρόοδος</option><option value="title">Τίτλος A–Z</option></select></div>
+      </header>
+
+      <section id="stats" class="stats"></section>
+      <section id="spotlight" class="spotlight"></section>
+
+      <section class="section-head"><div><h2 id="sectionTitle">Όλες οι διαλέξεις</h2><p id="sectionSubtitle">Συνέχισε εκεί που σταμάτησες.</p></div><div id="viewBadge" class="view-badge">Βιβλιοθήκη</div></section>
+      <section id="listsView" class="lists-view hidden"></section>
+      <section id="lectures" class="grid"></section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head"><div><div class="eyebrow">ΝΕΑ ΛΙΣΤΑ</div><h3>Οργάνωσε τις διαλέξεις σου</h3></div><button id="modalClose">×</button></div>
+      <p>Παράδειγμα: «Εξεταστική Σεπτεμβρίου», «Να ξαναδώ», «Κεφάλαιο 4».</p>
+      <input id="modalListName" maxlength="60" placeholder="Όνομα λίστας">
+      <button id="modalCreate" class="primary wide">＋ Δημιουργία λίστας</button>
+    </div>
+  </div>
+  <div id="toastHost"></div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
